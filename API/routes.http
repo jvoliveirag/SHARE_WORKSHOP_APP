@@ -1,0 +1,47 @@
+# @name get-technicians
+GET http://localhost:3333/tecnicos
+
+###
+
+# @name create-technician
+
+POST http://localhost:3333/tecnico/cadastrar
+Content-Type: application/json
+
+{
+  "name": "João Victor Teste 2",
+  "phoneNumber": "123456789",
+  "email": "teste123_victor@gmail.com",
+  "address": "rua 1234"
+}
+
+###
+
+# @name delete-technician
+
+DELETE http://localhost:3333/tecnico/deletar
+Content-Type: application/json
+
+{
+  "email": "teste123_victor@gmail.com"
+}
+
+###
+
+# @name update-technician
+
+PUT http://localhost:3333/tecnico/editar/joao321@gmail.com
+Content-Type: application/json
+
+{
+  "name": "Novo Nome 123",
+  "phoneNumber": "987654321",
+  "address": "Nova Rua 123"
+}
+
+###
+
+# @name find-technician-dy-email
+
+GET http://localhost:3333/tecnico/joaov123@gmail.com
+Content-Type: application/json

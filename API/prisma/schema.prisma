@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" //Here I am using sqlite (free, portable and very similar to SQLServer) because of (lack of) memory in my PC.
+  //Due to the applied "Dependency Inversion Principle" (repository), it does not depend on the applied database,
+  //in this case, to use sqlsever just change the "provider" here and the "DATABASE_URL" in the .env
+  url      = env("DATABASE_URL")
+}
+
+//Technician Table
+model Technician {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  name        String
+  phoneNumber String
+  email       String   @unique
+  address     String
+}
