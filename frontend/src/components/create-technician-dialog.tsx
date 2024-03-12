@@ -1,14 +1,14 @@
 
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { api } from "@/lib/axios";
@@ -38,18 +38,18 @@ export function CreateDialog() {
         address,
       });
 
-      alert('Técnico cadastrado com sucesso!')
+      alert('professor cadastrado com sucesso!')
       setIsSuccess(true)
       window.location.reload()
 
     } catch (error: any) {
-      let errorMessage = "Erro ao cadastrar técnico";
+      let errorMessage = "Erro ao cadastrar professor";
 
       if (error.response && error.response.data && error.response.data.message) {
         errorMessage = error.response.data.message;
       }
   
-      console.error("Erro ao cadastrar técnico:", errorMessage)
+      console.error("Erro ao cadastrar professor:", errorMessage)
       alert(errorMessage)
   
     } finally {
@@ -70,14 +70,14 @@ export function CreateDialog() {
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button className="w-full justify-center">
-          <Plus className="mr-2 h-5 w-5" /> Cadastrar novo técnico
+          <Plus className="mr-2 h-5 w-5" /> Cadastrar professor
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-xl">Cadastrar novo técnico</AlertDialogTitle>
+          <AlertDialogTitle className="text-xl">Cadastrar professor</AlertDialogTitle>
           <AlertDialogDescription>
-            Insira as informações solicitadas para adicionar um novo técnico.
+            Insira as informações solicitadas para adicionar um professor.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <form>
@@ -87,7 +87,7 @@ export function CreateDialog() {
               <Input
                 id="name"
                 required
-                placeholder="Nome do técnico"
+                placeholder="Nome do professor"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -97,7 +97,7 @@ export function CreateDialog() {
               <Input
                 id="phone"
                 required
-                placeholder="Telefone do técnico"
+                placeholder="Telefone do professor"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
@@ -107,7 +107,7 @@ export function CreateDialog() {
               <Input
                 id="email"
                 required
-                placeholder="E-mail do técnico"
+                placeholder="E-mail do professor"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -117,7 +117,7 @@ export function CreateDialog() {
               <Input
                 id="address"
                 required
-                placeholder="Endereço do técnico"
+                placeholder="Endereço do professor"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />

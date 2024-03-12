@@ -28,7 +28,7 @@ export const FindTechnicianPage: React.FC = () => {
 
     } catch (error) {
       setTechnician(null)
-      setError('Técnico não encontrado')
+      setError('professor não encontrado')
     }
   };
 

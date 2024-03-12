@@ -51,7 +51,7 @@ export function TechnicianCard({ technician, className, ...props }: CardProps) {
           </CardFooter>
         </>
       ) : (
-        <p>Técnico não encontrado</p>
+        <p>professor não encontrado</p>
       )}  
     </Card>
   )

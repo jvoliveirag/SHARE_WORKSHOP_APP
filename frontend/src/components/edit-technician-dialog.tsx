@@ -38,17 +38,17 @@ export function EditDialog({ technician }: EditDialogProps) {
         address,
       });
 
-      alert("Técnico editado com sucesso!");
+      alert("professor editado com sucesso!");
       window.location.reload();
       
     } catch (error: any) {
-      let errorMessage = "Erro desconhecido ao editar técnico";
+      let errorMessage = "Erro desconhecido ao editar professor";
 
       if (error.response && error.response.data && error.response.data.message) {
         errorMessage = error.response.data.message;
       }
 
-      console.error("Erro ao editar técnico:", errorMessage);
+      console.error("Erro ao editar professor:", errorMessage);
       alert(errorMessage);
     }
   };
@@ -62,7 +62,7 @@ export function EditDialog({ technician }: EditDialogProps) {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-xl">Editar técnico</AlertDialogTitle>
+          <AlertDialogTitle className="text-xl">Editar professor</AlertDialogTitle>
           <AlertDialogDescription>
             Ajuste as informações como desejado e clique em "Salvar" para confirmar.
           </AlertDialogDescription>

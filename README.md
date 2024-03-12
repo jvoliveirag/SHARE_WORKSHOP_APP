@@ -10,10 +10,10 @@
 ## 🎯 <a id="objetivo">Objetivo</a>
 O objetivo destes workshops é construir uma aplicação completa para aplicar os conceitos e tecnologias do mundo do desenvolvimento de software. A 
 
-Trata-se do dsenvolvimento de uma sistema que permite o gerenciamento dos técnicos credenciados de uma empresa de assistência. 
+Trata-se do dsenvolvimento de uma sistema que permite o gerenciamento dos professores credenciados de uma empresa de assistência. 
 Os requisitos serão detalhados a seguir.
 
-- <b><u>Contextualização:</u></b> imagine que a você foi contratado para desenvolver um sistema para uma empresa que precisa realizar o controle dos técnicas parceiros. Para realizar esse controle a empresa precisa registrar e monitorar os técnicos cadastrados. O desafio consiste em criar uma aplicação para cadastro, atualização, deleção e consulta de técnicos.
+- <b><u>Contextualização:</u></b> imagine que a você foi contratado para desenvolver um sistema para uma empresa que precisa realizar o controle dos técnicas parceiros. Para realizar esse controle a empresa precisa registrar e monitorar os professores cadastrados. O desafio consiste em criar uma aplicação para cadastro, atualização, deleção e consulta de professores.
 
 ## 📋 <a id="req">Requisitos</a>
   - VSCode;
@@ -37,13 +37,13 @@ Os requisitos serão detalhados a seguir.
 ### Boas práticas:
 - Package by feature:
   - Padrão onde estrutura-se as pastas da app por funcionalidade
-  - Ex.: Tudo relacionado à funcionalidade de criação do técnico vai no mesmo diretório (CreateTechnician)
+  - Ex.: Tudo relacionado à funcionalidade de criação do professor vai no mesmo diretório (CreateTechnician)
 
 - Single Responsibility Principle: 
   - Ex.: classe CreateTechnicianUseCase
-  - Tem a <b>única</b> responsabilidade de crar um técnico
+  - Tem a <b>única</b> responsabilidade de crar um professor
   - Não se preocupa/responsabiliza em saber onde vai ser salvo, por exemplo, <b>apenas salva</b>.
-  - Um único arquvio que detém toda a regra de negócio para salvar/criar um técnico, ou seja, sempre que algum componente quiser salvar um técnico, basta usar essa classe.
+  - Um único arquvio que detém toda a regra de negócio para salvar/criar um professor, ou seja, sempre que algum componente quiser salvar um professor, basta usar essa classe.
 
 - Liskov Substitution Principle: 
   - Ex.: <a id="repo">Repository</a>
@@ -62,7 +62,7 @@ Os requisitos serão detalhados a seguir.
   - Commits semânticos; 
   - Variáveis de ambiente.
 - Envio de email quando o tecnico é cadastrado (nodemailer e mailtrap).
-- Filtrar técnico por email;
+- Filtrar professor por email;
 - 100% Responsivo.
 
 ## ⚙️ <a id="exec">Como executar</a>
@@ -99,5 +99,5 @@ npm run test
   - Implementar uma pipeline de CI/CD;
   - Aplicar um banco de dados (MySQL, MongoDB, PostgreSQL);
   - Hospedar;
-  - Foto do técnico (url da imagem no banco ou alguma API)
+  - Foto do professor (url da imagem no banco ou alguma API)
   - Linter (padronizar formatação, espaçamento/identação, pontuação, etc)

@@ -94,7 +94,7 @@ describe('CreateTechnicianUseCase', () => {
     // Act and Assert
     await expect(
       createTechnicianUseCase.execute(createTechnicianRequest)
-    ).rejects.toThrow('Este técnico já está cadastrado.');
+    ).rejects.toThrow('Este professor já está cadastrado.');
 
   });
 });

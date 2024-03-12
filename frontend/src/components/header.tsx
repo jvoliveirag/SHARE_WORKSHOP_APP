@@ -11,7 +11,7 @@ export function Header() {
         <a href="/"><img src="favicon.png" alt="logo" width={40} className="md:hidden flex-1 mr-3 pb-2 flex"/></a>
         <Separator orientation="vertical" className="h-8" />
         <h1 className="md:text-2xl text-lg md:font-normal font-bold flex md:ml-3 pb-2">
-          Gestão dos técnicos
+          Gestão de pessoas
         </h1>
       </div>
 

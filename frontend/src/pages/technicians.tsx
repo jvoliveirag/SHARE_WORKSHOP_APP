@@ -13,7 +13,7 @@ const fetchTechniciansFromAPI = async () => {
     const response = await api.get('/tecnicos'); // Substitua pela sua URL completa
     return response.data;
   } catch (error) {
-    console.error('Erro ao buscar técnicos:', error);
+    console.error('Erro ao buscar professores:', error);
     return [];
   }
 };

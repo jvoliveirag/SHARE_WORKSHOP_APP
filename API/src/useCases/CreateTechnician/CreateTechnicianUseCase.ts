@@ -12,7 +12,7 @@ export class CreateTechnicianUseCase {
     const technicianAlreadyExists = await this.techniciansRepository.findByEmail(data.email)
 
     if(technicianAlreadyExists) {
-      throw new Error("Este técnico já está cadastrado.")
+      throw new Error("Este professor já está cadastrado.")
     }
 
     const technician = new Technician(data)

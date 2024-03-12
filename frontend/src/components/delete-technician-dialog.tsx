@@ -30,17 +30,17 @@ export function DeleteDialog({ technician }: EditDialogProps) {
         }
       });
       
-      alert("Técnico excluído com sucesso!");
+      alert("professor excluído com sucesso!");
       window.location.reload()
 
     } catch (error: any) {
-      let errorMessage = "Erro desconhecido ao excluir técnico";
+      let errorMessage = "Erro desconhecido ao excluir professor";
 
       if (error.response && error.response.data && error.response.data.message) {
         errorMessage = error.response.data.message;
       }
 
-      console.error("Erro ao excluir técnico:", errorMessage);
+      console.error("Erro ao excluir professor:", errorMessage);
       alert(errorMessage);
     }
   };
@@ -56,7 +56,7 @@ export function DeleteDialog({ technician }: EditDialogProps) {
         <AlertDialogHeader>
           <AlertDialogTitle>Tem certeza que deseja deletar {technician.name} da lista?</AlertDialogTitle>
           <AlertDialogDescription>
-            Esta ação não poderá ser desefeita e o técnico será excluído permanentemente.
+            Esta ação não poderá ser desefeita e o professor será excluído permanentemente.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

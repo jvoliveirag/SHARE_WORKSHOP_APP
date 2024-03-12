@@ -26,7 +26,7 @@ export function TechnicianDetailsCardDialog({ technician }: EditDialogProps) {
         <AlertDialogHeader>
           <AlertDialogTitle>{technician.name}</AlertDialogTitle>
           <AlertDialogDescription>
-            Detalhes do técnico.
+            Detalhes do professor.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
