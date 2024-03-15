@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { DeleteProfessorUseCase } from './DeleteProfessorUseCase';
+import { DeleteProfessorUseCase } from './DeletePofessorUseCase';
 
 export class DeleteProfessorController {
   constructor(

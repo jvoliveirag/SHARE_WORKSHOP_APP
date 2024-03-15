@@ -9,9 +9,9 @@ POST http://localhost:3333/professor/cadastrar
 Content-Type: application/json
 
 {
-  "name": "João Victor Teste 2",
+  "name": "João Victor Teste 3",
   "phoneNumber": "123456789",
-  "email": "teste123_victor@gmail.com",
+  "email": "joaov123@gmail.com",
   "address": "rua 1234"
 }
 

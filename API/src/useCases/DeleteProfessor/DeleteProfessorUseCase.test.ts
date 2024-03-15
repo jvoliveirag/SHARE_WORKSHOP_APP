@@ -1,6 +1,6 @@
 // DeleteProfessorUseCase.spec.ts
 import { IProfessorsRepository } from '../../repositories/IProfessorsRepository';
-import { DeleteProfessorUseCase } from './DeleteProfessorUseCase';
+import { DeleteProfessorUseCase } from './DeletePofessorUseCase';
 
 // Mock for the repository
 const mockProfessorsRepository: jest.Mocked<IProfessorsRepository> = {

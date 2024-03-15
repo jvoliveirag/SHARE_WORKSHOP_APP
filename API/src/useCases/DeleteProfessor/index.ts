@@ -1,6 +1,6 @@
 import { SQLServerProfessorsRepository } from "../../repositories/implementations/SQLServerProfessorsRepository";
+import { DeleteProfessorUseCase } from "./DeletePofessorUseCase";
 import { DeleteProfessorController } from "./DeleteProfessorController";
-import { DeleteProfessorUseCase } from "./DeleteProfessorUseCase";
 
 const sqlServerProfessorsRepository = new SQLServerProfessorsRepository
 
