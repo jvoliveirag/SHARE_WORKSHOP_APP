@@ -10,10 +10,10 @@
 ## 🎯 <a id="objetivo">Objetivo</a>
 O objetivo destes workshops é construir uma aplicação completa para aplicar os conceitos e tecnologias do mundo do desenvolvimento de software. A 
 
-Trata-se do dsenvolvimento de uma sistema que permite o gerenciamento dos professores credenciados de uma empresa de assistência. 
+Trata-se do dsenvolvimento de uma sistema que permite o gerenciamento dos professores de uma empresa. 
 Os requisitos serão detalhados a seguir.
 
-- <b><u>Contextualização:</u></b> imagine que a você foi contratado para desenvolver um sistema para uma empresa que precisa realizar o controle dos técnicas parceiros. Para realizar esse controle a empresa precisa registrar e monitorar os professores cadastrados. O desafio consiste em criar uma aplicação para cadastro, atualização, deleção e consulta de professores.
+- <b><u>Contextualização:</u></b> imagine que a você foi contratado para desenvolver um sistema para uma empresa que precisa realizar o controle de seu pessoal (neste caso, professores). Para tal a empresa precisa registrar e monitorar os professores cadastrados. O desafio consiste em criar uma aplicação para cadastro, atualização, deleção e consulta de professores.
 
 ## 📋 <a id="req">Requisitos</a>
   - VSCode;
