@@ -1,16 +1,16 @@
-import { SQLServerTechniciansRepository } from "../../repositories/implementations/SQLServerTechniciansRepository";
-import { GetAllTechniciansController } from "./GetAllTechniciansController";
-import { GetAllTechniciansUseCase } from "./GetAllTechniciansUseCase";
+import { SQLServerProfessorsRepository } from "../../repositories/implementations/SQLServerProfessorsRepository";
+import { GetAllProfessorsController } from "./GetAllProfessorsController";
+import { GetAllProfessorsUseCase } from "./GetAllProfessorsUseCase";
 
-const sqlServerTechniciansRepository = new SQLServerTechniciansRepository
+const sqlServerProfessorsRepository = new SQLServerProfessorsRepository
 
-const getAllTechniciansUseCase = new GetAllTechniciansUseCase(
-  sqlServerTechniciansRepository,
+const getAllProfessorsUseCase = new GetAllProfessorsUseCase(
+  sqlServerProfessorsRepository,
 )
 
-const getAllTechniciansController = new GetAllTechniciansController(
-  getAllTechniciansUseCase
+const getAllProfessorsController = new GetAllProfessorsController(
+  getAllProfessorsUseCase
 )
 
-export { getAllTechniciansController, getAllTechniciansUseCase };
+export { getAllProfessorsController, getAllProfessorsUseCase };
 

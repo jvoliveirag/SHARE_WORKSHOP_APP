@@ -1,7 +1,7 @@
-// TecnicosPage.tsx
+// ProfessorsPage.tsx
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Technician } from "@/dtos/TechnicianDTO";
+import { Professor } from "@/dtos/ProfessorDTO";
 import { api } from "@/lib/axios";
 import { Label } from "@radix-ui/react-label";
 import { Search } from "lucide-react";
@@ -9,12 +9,12 @@ import React, { useState } from "react";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
 import { SideBar } from "../components/sideBar";
-import { TechnicianCard } from "../components/technician-card";
+import { ProfessorCard } from "../components/professor-card";
 
-export const FindTechnicianPage: React.FC = () => {
+export const FindProfessorPage: React.FC = () => {
   
   const [email, setEmail] = useState('')
-  const [technician, setTechnician] = useState<Technician | null>(null)
+  const [professor, setProfessor] = useState<Professor | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,12 +22,12 @@ export const FindTechnicianPage: React.FC = () => {
     e.preventDefault()
 
     try {
-      const response = await api.get(`http://localhost:3333/tecnico/${email}`)
-      setTechnician(response.data)
+      const response = await api.get(`http://localhost:3333/professor/${email}`)
+      setProfessor(response.data)
       setError(null)
 
     } catch (error) {
-      setTechnician(null)
+      setProfessor(null)
       setError('professor não encontrado')
     }
   };
@@ -64,8 +64,8 @@ export const FindTechnicianPage: React.FC = () => {
 
           <div className="flex">
             {
-              technician ? (
-                <TechnicianCard technician={technician}></TechnicianCard>
+              professor ? (
+                <ProfessorCard professor={professor}></ProfessorCard>
               ) : 
                 <p className="text-2xl">{error}</p>
             }

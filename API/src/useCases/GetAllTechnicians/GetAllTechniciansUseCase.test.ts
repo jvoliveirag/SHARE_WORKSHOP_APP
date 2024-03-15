@@ -1,9 +1,9 @@
-// GetAllTechniciansUseCase.spec.ts
-import { ITechniciansRepository } from '../../repositories/ITechniciansRepository';
-import { GetAllTechniciansUseCase } from './GetAllTechniciansUseCase';
+// GetAllProfessorsUseCase.spec.ts
+import { IProfessorsRepository } from '../../repositories/IProfessorsRepository';
+import { GetAllProfessorsUseCase } from './GetAllProfessorsUseCase';
 
 // Mock for the repository
-const mockTechniciansRepository: jest.Mocked<ITechniciansRepository> = {
+const mockProfessorsRepository: jest.Mocked<IProfessorsRepository> = {
   findByEmail: jest.fn(),
   save: jest.fn(),
   update: jest.fn(),
@@ -11,22 +11,22 @@ const mockTechniciansRepository: jest.Mocked<ITechniciansRepository> = {
   getAll: jest.fn(),
 };
 
-describe('GetAllTechniciansUseCase', () => {
-  let getAllTechniciansUseCase: GetAllTechniciansUseCase;
+describe('GetAllProfessorsUseCase', () => {
+  let getAllProfessorsUseCase: GetAllProfessorsUseCase;
 
   beforeEach(() => {
     // Reset mock calls before each test
     jest.clearAllMocks();
 
-    getAllTechniciansUseCase = new GetAllTechniciansUseCase(
-      mockTechniciansRepository,
+    getAllProfessorsUseCase = new GetAllProfessorsUseCase(
+      mockProfessorsRepository,
     );
   });
 
-  it('should get all technicians', async () => {
+  it('should get all professors', async () => {
     // Arrange
-    // Mock the repository to return a list of technicians
-    const techniciansList = [
+    // Mock the repository to return a list of professors
+    const professorsList = [
       {
         id: '1a2b3c',
         name: 'John Doe',
@@ -35,24 +35,24 @@ describe('GetAllTechniciansUseCase', () => {
         address: 'rua 123 de oliveira 4',
         // other properties...
       },
-      // Add more technicians as needed...
+      // Add more professors as needed...
     ];
-    mockTechniciansRepository.getAll.mockResolvedValueOnce(techniciansList);
+    mockProfessorsRepository.getAll.mockResolvedValueOnce(professorsList);
 
     // Act
-    const result = await getAllTechniciansUseCase.execute();
+    const result = await getAllProfessorsUseCase.execute();
 
     // Assert
-    expect(mockTechniciansRepository.getAll).toHaveBeenCalled();
-    expect(result).toEqual(techniciansList);
+    expect(mockProfessorsRepository.getAll).toHaveBeenCalled();
+    expect(result).toEqual(professorsList);
   });
 
-  it('should throw an error if no technicians are found', async () => {
+  it('should throw an error if no professors are found', async () => {
     // Arrange
-    // Mock the repository to return null (indicating no technicians found)
-    mockTechniciansRepository.getAll.mockResolvedValueOnce(null);
+    // Mock the repository to return null (indicating no professors found)
+    mockProfessorsRepository.getAll.mockResolvedValueOnce(null);
 
     // Act and Assert
-    await expect(getAllTechniciansUseCase.execute()).rejects.toThrow('No technicians found');
+    await expect(getAllProfessorsUseCase.execute()).rejects.toThrow('No professors found');
   });
 });

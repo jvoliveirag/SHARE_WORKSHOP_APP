@@ -1,4 +1,4 @@
-export const techniciansListMock = [
+export const professorsListMock = [
   {
     name: "John Doe",
     phoneNumber: "1234567890",

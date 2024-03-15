@@ -1,22 +1,22 @@
 import { Request, Response } from 'express';
-import { DeleteTechnicianUseCase } from './DeleteTechnicianUseCase';
+import { DeleteProfessorUseCase } from './DeleteProfessorUseCase';
 
-export class DeleteTechnicianController {
+export class DeleteProfessorController {
   constructor(
-    private deleteTechnicianUseCase: DeleteTechnicianUseCase
+    private deleteProfessorUseCase: DeleteProfessorUseCase
   ) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     const { email } = request.body
 
     try {
-      await this.deleteTechnicianUseCase.execute(email)
+      await this.deleteProfessorUseCase.execute(email)
 
-      return response.status(201).json('Technician succesfully deleted.').send()
+      return response.status(201).json('Professor succesfully deleted.').send()
     } catch (err) {
       console.error('Error: ', err);
       return response.status(404).json({
-        error: err.message || 'Technician not found'
+        error: err.message || 'Professor not found'
       })
     }
   }

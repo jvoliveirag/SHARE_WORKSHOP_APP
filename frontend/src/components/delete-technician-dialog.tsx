@@ -10,21 +10,21 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { Technician } from "@/dtos/TechnicianDTO";
+import { Professor } from "@/dtos/ProfessorDTO";
 import { api } from "@/lib/axios";
 import { Trash } from "lucide-react";
 
 type EditDialogProps = {
-  technician: Technician;
+  professor: Professor;
 };
 
-export function DeleteDialog({ technician }: EditDialogProps) {
+export function DeleteDialog({ professor }: EditDialogProps) {
 
-  const email = technician.email
+  const email = professor.email
 
   const handleDelete = async () => {
     try {
-      await api.delete(`http://localhost:3333/tecnico/deletar`, {
+      await api.delete(`http://localhost:3333/professor/deletar`, {
         data: {
           email
         }
@@ -54,7 +54,7 @@ export function DeleteDialog({ technician }: EditDialogProps) {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Tem certeza que deseja deletar {technician.name} da lista?</AlertDialogTitle>
+          <AlertDialogTitle>Tem certeza que deseja deletar {professor.name} da lista?</AlertDialogTitle>
           <AlertDialogDescription>
             Esta ação não poderá ser desefeita e o professor será excluído permanentemente.
           </AlertDialogDescription>

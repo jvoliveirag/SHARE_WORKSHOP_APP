@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { CreateTechnicianUseCase } from './CreateTechnicianUseCase';
+import { CreateProfessorUseCase } from './CreateProfessorUseCase';
 
-export class CreateTechnicianController {
+export class CreateProfessorController {
   constructor(
-    private createTechnicianUseCase: CreateTechnicianUseCase
+    private createProfessorUseCase: CreateProfessorUseCase
   ) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
@@ -15,14 +15,14 @@ export class CreateTechnicianController {
         return response.status(400).json({ error: 'All fields required' });
       }
 
-      await this.createTechnicianUseCase.execute({
+      await this.createProfessorUseCase.execute({
         name,
         phoneNumber,
         email,
         address
       })
 
-      return response.status(201).json('Technician succesfully created.').send()
+      return response.status(201).json('Professor succesfully created.').send()
     } catch (err) {
       return response.status(400).json({
         message: err.message || 'Unexpected error.'

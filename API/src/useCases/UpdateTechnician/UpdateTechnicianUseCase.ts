@@ -1,21 +1,21 @@
-import { CreateTechnicianRequestDTO } from '../../dtos/CreateTechnicianDTO';
-import { ITechniciansRepository } from '../../repositories/ITechniciansRepository';
+import { CreateProfessorRequestDTO } from '../../dtos/CreateProfessorDTO';
+import { IProfessorsRepository } from '../../repositories/IProfessorsRepository';
 
-export class UpdateTechnicianUseCase {
+export class UpdateProfessorUseCase {
 
   constructor(
-    private techniciansRepository: ITechniciansRepository,
+    private professorsRepository: IProfessorsRepository,
   ) {}
 
-  async execute(email: string, data: CreateTechnicianRequestDTO): Promise<void> {
-    const existingTechnician = await this.techniciansRepository.findByEmail(email);
+  async execute(email: string, data: CreateProfessorRequestDTO): Promise<void> {
+    const existingProfessor = await this.professorsRepository.findByEmail(email);
 
-    if (!existingTechnician) {
-      throw new Error('Technician not found');
+    if (!existingProfessor) {
+      throw new Error('Professor not found');
     }
 
-    const updatedTechnician = { ...existingTechnician, ...data };
+    const updatedProfessor = { ...existingProfessor, ...data };
 
-    await this.techniciansRepository.update(email, updatedTechnician);
+    await this.professorsRepository.update(email, updatedProfessor);
   }
 }

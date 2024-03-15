@@ -1,10 +1,10 @@
-// UpdateTechnicianUseCase.spec.ts
-import { CreateTechnicianRequestDTO } from '../../dtos/CreateTechnicianDTO';
-import { ITechniciansRepository } from '../../repositories/ITechniciansRepository';
-import { UpdateTechnicianUseCase } from './UpdateTechnicianUseCase';
+// UpdateProfessorUseCase.spec.ts
+import { CreateProfessorRequestDTO } from '../../dtos/CreateProfessorDTO';
+import { IProfessorsRepository } from '../../repositories/IProfessorsRepository';
+import { UpdateProfessorUseCase } from './UpdateProfessorUseCase';
 
 // Mock for the repository
-const mockTechniciansRepository: jest.Mocked<ITechniciansRepository> = {
+const mockProfessorsRepository: jest.Mocked<IProfessorsRepository> = {
   findByEmail: jest.fn(),
   save: jest.fn(),
   update: jest.fn(),
@@ -12,30 +12,30 @@ const mockTechniciansRepository: jest.Mocked<ITechniciansRepository> = {
   getAll: jest.fn(),
 };
 
-describe('UpdateTechnicianUseCase', () => {
-  let updateTechnicianUseCase: UpdateTechnicianUseCase;
+describe('UpdateProfessorUseCase', () => {
+  let updateProfessorUseCase: UpdateProfessorUseCase;
 
   beforeEach(() => {
     // Reset mock calls before each test
     jest.clearAllMocks();
 
-    updateTechnicianUseCase = new UpdateTechnicianUseCase(
-      mockTechniciansRepository,
+    updateProfessorUseCase = new UpdateProfessorUseCase(
+      mockProfessorsRepository,
     );
   });
 
-  it('should update an existing technician', async () => {
+  it('should update an existing professor', async () => {
     // Arrange
     const email = 'john.doe@example.com';
-    const updateTechnicianRequest: CreateTechnicianRequestDTO = {
+    const updateProfessorRequest: CreateProfessorRequestDTO = {
       email:'john.doe@example.com',
       name: 'John Doe Updated',
       phoneNumber: '87654321',
       address: 'Updated address',
     };
 
-    // Mock the repository to return an existing technician
-    const existingTechnician = {
+    // Mock the repository to return an existing professor
+    const existingProfessor = {
       id: '1a2b3c',
       name: 'John Doe',
       phoneNumber: '12345678',
@@ -43,40 +43,40 @@ describe('UpdateTechnicianUseCase', () => {
       address: 'Old address',
       // other properties...
     };
-    mockTechniciansRepository.findByEmail.mockResolvedValueOnce(existingTechnician);
+    mockProfessorsRepository.findByEmail.mockResolvedValueOnce(existingProfessor);
 
     // Act
-    await updateTechnicianUseCase.execute(email, updateTechnicianRequest);
+    await updateProfessorUseCase.execute(email, updateProfessorRequest);
 
     // Assert
-    expect(mockTechniciansRepository.findByEmail).toHaveBeenCalledWith(email);
-    expect(mockTechniciansRepository.update).toHaveBeenCalledWith(
+    expect(mockProfessorsRepository.findByEmail).toHaveBeenCalledWith(email);
+    expect(mockProfessorsRepository.update).toHaveBeenCalledWith(
       email,
       expect.objectContaining({
-        name: updateTechnicianRequest.name,
-        phoneNumber: updateTechnicianRequest.phoneNumber,
-        address: updateTechnicianRequest.address,
+        name: updateProfessorRequest.name,
+        phoneNumber: updateProfessorRequest.phoneNumber,
+        address: updateProfessorRequest.address,
         // other expected properties...
       }),
     );
   });
 
-  it('should throw an error if the technician does not exist', async () => {
+  it('should throw an error if the professor does not exist', async () => {
     // Arrange
     const email = 'nonexistent@example.com';
-    const updateTechnicianRequest: CreateTechnicianRequestDTO = {
+    const updateProfessorRequest: CreateProfessorRequestDTO = {
       email: 'test@gmail.com',
       name: 'John Doe Updated',
       phoneNumber: '87654321',
       address: 'Updated address',
     };
 
-    // Mock the repository to return null (indicating no technician found)
-    mockTechniciansRepository.findByEmail.mockResolvedValueOnce(null);
+    // Mock the repository to return null (indicating no professor found)
+    mockProfessorsRepository.findByEmail.mockResolvedValueOnce(null);
 
     // Act and Assert
     await expect(
-      updateTechnicianUseCase.execute(email, updateTechnicianRequest),
-    ).rejects.toThrow('Technician not found');
+      updateProfessorUseCase.execute(email, updateProfessorRequest),
+    ).rejects.toThrow('Professor not found');
   });
 });

@@ -1,16 +1,16 @@
-import { SQLServerTechniciansRepository } from "../../repositories/implementations/SQLServerTechniciansRepository";
-import { DeleteTechnicianController } from "./DeleteTechnicianController";
-import { DeleteTechnicianUseCase } from "./DeleteTechnicianUseCase";
+import { SQLServerProfessorsRepository } from "../../repositories/implementations/SQLServerProfessorsRepository";
+import { DeleteProfessorController } from "./DeleteProfessorController";
+import { DeleteProfessorUseCase } from "./DeleteProfessorUseCase";
 
-const sqlServerTechniciansRepository = new SQLServerTechniciansRepository
+const sqlServerProfessorsRepository = new SQLServerProfessorsRepository
 
-const deleteTechnicianUseCase = new DeleteTechnicianUseCase(
-  sqlServerTechniciansRepository,
+const deleteProfessorUseCase = new DeleteProfessorUseCase(
+  sqlServerProfessorsRepository,
 )
 
-const deleteTechnicianController = new DeleteTechnicianController(
-  deleteTechnicianUseCase
+const deleteProfessorController = new DeleteProfessorController(
+  deleteProfessorUseCase
 )
 
-export { deleteTechnicianController, deleteTechnicianUseCase };
+export { deleteProfessorController, deleteProfessorUseCase };
 

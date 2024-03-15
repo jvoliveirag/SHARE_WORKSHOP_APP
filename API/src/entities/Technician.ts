@@ -1,7 +1,7 @@
 //import { uuid } from "uuidv4"
 import { v4 as uuid } from 'uuid';
 
-export class Technician {
+export class Professor {
   public readonly id: string
 
   public name: string
@@ -9,7 +9,7 @@ export class Technician {
   public email: string
   public address: string
 
-  constructor(props: Omit<Technician, 'id'>, id?: string) {
+  constructor(props: Omit<Professor, 'id'>, id?: string) {
     Object.assign(this, props)
 
     if(!id) {

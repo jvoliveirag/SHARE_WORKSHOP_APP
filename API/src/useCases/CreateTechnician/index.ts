@@ -1,19 +1,19 @@
 import { MailtrapMailProvider } from "../../providers/implementations/MailtrapMailProvider";
-import { SQLServerTechniciansRepository } from "../../repositories/implementations/SQLServerTechniciansRepository";
-import { CreateTechnicianController } from "./CreateTechnicianController";
-import { CreateTechnicianUseCase } from "./CreateTechnicianUseCase";
+import { SQLServerProfessorsRepository } from "../../repositories/implementations/SQLServerProfessorsRepository";
+import { CreateProfessorController } from "./CreateProfessorController";
+import { CreateProfessorUseCase } from "./CreateProfessorUseCase";
 
-const sqlServerTechniciansRepository = new SQLServerTechniciansRepository
+const sqlServerProfessorsRepository = new SQLServerProfessorsRepository
 const mailtrapMailProvider = new MailtrapMailProvider
 
-const createTechnicianUseCase = new CreateTechnicianUseCase(
-  sqlServerTechniciansRepository,
+const createProfessorUseCase = new CreateProfessorUseCase(
+  sqlServerProfessorsRepository,
   mailtrapMailProvider, 
 )
 
-const createTechnicianController = new CreateTechnicianController(
-  createTechnicianUseCase
+const createProfessorController = new CreateProfessorController(
+  createProfessorUseCase
 )
 
-export { createTechnicianController, createTechnicianUseCase };
+export { createProfessorController, createProfessorUseCase };
 

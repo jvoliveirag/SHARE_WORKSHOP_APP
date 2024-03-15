@@ -1,16 +1,16 @@
-import { SQLServerTechniciansRepository } from "../../repositories/implementations/SQLServerTechniciansRepository";
-import { FindTechnicianByEmailController } from './FindTechnicianByEmailController';
-import { FindTechnicianByEmailUseCase } from './FindTechnicianByEmailUseCase';
+import { SQLServerProfessorsRepository } from "../../repositories/implementations/SQLServerProfessorsRepository";
+import { FindProfessorByEmailController } from './FindProfessorByEmailController';
+import { FindProfessorByEmailUseCase } from './FindProfessorByEmailUseCase';
 
-const sqlServerTechniciansRepository = new SQLServerTechniciansRepository
+const sqlServerProfessorsRepository = new SQLServerProfessorsRepository
 
-const findTechnicianByEmailUseCase = new FindTechnicianByEmailUseCase(
-  sqlServerTechniciansRepository,
+const findProfessorByEmailUseCase = new FindProfessorByEmailUseCase(
+  sqlServerProfessorsRepository,
 )
 
-const findTechnicianByEmailController = new FindTechnicianByEmailController(
-  findTechnicianByEmailUseCase
+const findProfessorByEmailController = new FindProfessorByEmailController(
+  findProfessorByEmailUseCase
 )
 
-export { findTechnicianByEmailController, findTechnicianByEmailUseCase };
+export { findProfessorByEmailController, findProfessorByEmailUseCase };
 

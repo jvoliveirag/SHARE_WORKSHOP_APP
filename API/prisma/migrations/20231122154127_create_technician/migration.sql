@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Technician" (
+CREATE TABLE "Professor" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "name" TEXT NOT NULL,
@@ -9,4 +9,4 @@ CREATE TABLE "Technician" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Technician_email_key" ON "Technician"("email");
+CREATE UNIQUE INDEX "Professor_email_key" ON "Professor"("email");

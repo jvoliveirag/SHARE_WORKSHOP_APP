@@ -1,9 +1,9 @@
-// FindTechnicianByEmailUseCase.spec.ts
-import { ITechniciansRepository } from '../../repositories/ITechniciansRepository';
-import { FindTechnicianByEmailUseCase } from './FindTechnicianByEmailUseCase';
+// FindProfessorByEmailUseCase.spec.ts
+import { IProfessorsRepository } from '../../repositories/IProfessorsRepository';
+import { FindProfessorByEmailUseCase } from './FindProfessorByEmailUseCase';
 
 // Mock for the repository
-const mockTechniciansRepository: jest.Mocked<ITechniciansRepository> = {
+const mockProfessorsRepository: jest.Mocked<IProfessorsRepository> = {
   findByEmail: jest.fn(),
   save: jest.fn(),
   update: jest.fn(),
@@ -11,24 +11,24 @@ const mockTechniciansRepository: jest.Mocked<ITechniciansRepository> = {
   getAll: jest.fn()
 };
 
-describe('FindTechnicianByEmailUseCase', () => {
-  let findTechnicianByEmailUseCase: FindTechnicianByEmailUseCase;
+describe('FindProfessorByEmailUseCase', () => {
+  let findProfessorByEmailUseCase: FindProfessorByEmailUseCase;
 
   beforeEach(() => {
     // Reset mock calls before each test
     jest.clearAllMocks();
 
-    findTechnicianByEmailUseCase = new FindTechnicianByEmailUseCase(
-      mockTechniciansRepository,
+    findProfessorByEmailUseCase = new FindProfessorByEmailUseCase(
+      mockProfessorsRepository,
     );
   });
 
-  it('should find a technician by email', async () => {
+  it('should find a professor by email', async () => {
     // Arrange
-    const technicianEmailToFind = 'john.doe@example.com';
+    const professorEmailToFind = 'john.doe@example.com';
 
-    // Mock the repository to return an existing technician
-    const existingTechnician = {
+    // Mock the repository to return an existing professor
+    const existingProfessor = {
       id: '1a2b3c',
       name: 'John Doe',
       phoneNumber: '12345678',
@@ -36,26 +36,26 @@ describe('FindTechnicianByEmailUseCase', () => {
       address: 'rua 123 de oliveira 4'
       // other properties...
     };
-    mockTechniciansRepository.findByEmail.mockResolvedValueOnce(existingTechnician);
+    mockProfessorsRepository.findByEmail.mockResolvedValueOnce(existingProfessor);
 
     // Act
-    const result = await findTechnicianByEmailUseCase.execute(technicianEmailToFind);
+    const result = await findProfessorByEmailUseCase.execute(professorEmailToFind);
 
     // Assert
-    expect(mockTechniciansRepository.findByEmail).toHaveBeenCalledWith(technicianEmailToFind);
-    expect(result).toEqual(existingTechnician);
+    expect(mockProfessorsRepository.findByEmail).toHaveBeenCalledWith(professorEmailToFind);
+    expect(result).toEqual(existingProfessor);
   });
 
-  it('should throw an error if the technician does not exist', async () => {
+  it('should throw an error if the professor does not exist', async () => {
     // Arrange
-    const nonExistingTechnicianEmail = 'nonexisting@example.com';
+    const nonExistingProfessorEmail = 'nonexisting@example.com';
 
-    // Mock the repository to return null (indicating that the technician doesn't exist)
-    mockTechniciansRepository.findByEmail.mockResolvedValueOnce(null);
+    // Mock the repository to return null (indicating that the professor doesn't exist)
+    mockProfessorsRepository.findByEmail.mockResolvedValueOnce(null);
 
     // Act and Assert
     await expect(
-      findTechnicianByEmailUseCase.execute(nonExistingTechnicianEmail)
-    ).rejects.toThrow('Technician not found');
+      findProfessorByEmailUseCase.execute(nonExistingProfessorEmail)
+    ).rejects.toThrow('Professor not found');
   });
 });

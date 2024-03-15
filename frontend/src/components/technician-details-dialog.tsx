@@ -8,14 +8,14 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from "@/components/ui/alert-dialog";
-import { Technician } from "@/dtos/TechnicianDTO";
+import { Professor } from "@/dtos/ProfessorDTO";
 import { Plus } from "lucide-react";
 
 type EditDialogProps = {
-  technician: Technician;
+  professor: Professor;
 };
 
-export function TechnicianDetailsCardDialog({ technician }: EditDialogProps) {
+export function ProfessorDetailsCardDialog({ professor }: EditDialogProps) {
 
   return (
     <AlertDialog>
@@ -24,7 +24,7 @@ export function TechnicianDetailsCardDialog({ technician }: EditDialogProps) {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>{technician.name}</AlertDialogTitle>
+          <AlertDialogTitle>{professor.name}</AlertDialogTitle>
           <AlertDialogDescription>
             Detalhes do professor.
           </AlertDialogDescription>

@@ -1,32 +1,32 @@
-import { Technician } from "../../entities/Technician";
+import { Professor } from "../../entities/Professor";
 import { prisma } from "../../lib/prisma";
-import { ITechniciansRepository } from "../ITechniciansRepository";
+import { IProfessorsRepository } from "../IProfessorsRepository";
 
-export class SQLServerTechniciansRepository implements ITechniciansRepository {
+export class SQLServerProfessorsRepository implements IProfessorsRepository {
 
-  async findByEmail(email: string): Promise<Technician | null> {
-    const technician = await prisma.technician.findUnique({
+  async findByEmail(email: string): Promise<Professor | null> {
+    const professor = await prisma.professor.findUnique({
       where: {
         email,
       },
     })
-    return technician ? technician : null
+    return professor ? professor : null
   }
 
-  async save(technician: Technician): Promise<Technician> {
-    const createdTechnician = await prisma.technician.create({
+  async save(professor: Professor): Promise<Professor> {
+    const createdProfessor = await prisma.professor.create({
       data: {
-        name: technician.name,
-        phoneNumber: technician.phoneNumber,
-        email: technician.email,
-        address: technician.address,
+        name: professor.name,
+        phoneNumber: professor.phoneNumber,
+        email: professor.email,
+        address: professor.address,
       },
     });
-    return createdTechnician;
+    return createdProfessor;
   }
 
-  async update(email: string, data: Partial<Technician>): Promise<Technician> {
-    const updatedTechnician = await prisma.technician.update({
+  async update(email: string, data: Partial<Professor>): Promise<Professor> {
+    const updatedProfessor = await prisma.professor.update({
       where: {
         email: email
       },
@@ -37,29 +37,29 @@ export class SQLServerTechniciansRepository implements ITechniciansRepository {
         address: data.address,
       }
     });
-    return updatedTechnician
+    return updatedProfessor
   }
 
   async delete(email: string): Promise<void> {
-    await prisma.technician.delete({
+    await prisma.professor.delete({
       where: {
         email: email
       }
     })
-    console.log('Technician succesfully deleted')
+    console.log('Professor succesfully deleted')
   }
 
-  async getAll(): Promise<Technician[]> {
+  async getAll(): Promise<Professor[]> {
     try {
 
-      const techniciansList = await prisma.technician.findMany()
+      const professorsList = await prisma.professor.findMany()
 
-      const modifiedTechniciansList = Array.from(techniciansList).map((technician) => {
-        const { createdAt, ...rest } = technician;
+      const modifiedProfessorsList = Array.from(professorsList).map((professor) => {
+        const { createdAt, ...rest } = professor;
         return rest;
       });
 
-      return modifiedTechniciansList
+      return modifiedProfessorsList
 
     } catch(err) {
       console.log('Erro: ', err);

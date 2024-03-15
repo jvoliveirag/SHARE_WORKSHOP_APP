@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { updatTechnicianController } from '../useCases/UpdateTechnician';
+import { updatProfessorController } from '../useCases/UpdateProfessor';
 
-const updateTechnician = Router()
+const updateProfessor = Router()
 
-updateTechnician.put('/tecnico/editar/:email', (request, response) => {
-  return updatTechnicianController.handle(request, response)
+updateProfessor.put('/professor/editar/:email', (request, response) => {
+  return updatProfessorController.handle(request, response)
 })
 
-export { updateTechnician };
+export { updateProfessor };
 

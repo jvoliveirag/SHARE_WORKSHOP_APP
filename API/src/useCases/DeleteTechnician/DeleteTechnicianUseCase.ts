@@ -1,19 +1,19 @@
-import { ITechniciansRepository } from "../../repositories/ITechniciansRepository";
+import { IProfessorsRepository } from "../../repositories/IProfessorsRepository";
 
-export class DeleteTechnicianUseCase {
+export class DeleteProfessorUseCase {
 
   constructor(
-    private techniciansRepository: ITechniciansRepository,
+    private professorsRepository: IProfessorsRepository,
   ) {}
 
   async execute(email: string): Promise<void> {
 
-    const existingTechnician = await this.techniciansRepository.findByEmail(email)
+    const existingProfessor = await this.professorsRepository.findByEmail(email)
 
-    if(!existingTechnician){
-      throw new Error("Technician not found")
+    if(!existingProfessor){
+      throw new Error("Professor not found")
     }
 
-    await this.techniciansRepository.delete(email)
+    await this.professorsRepository.delete(email)
   }
 }

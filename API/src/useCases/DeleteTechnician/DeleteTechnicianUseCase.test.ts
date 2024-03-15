@@ -1,9 +1,9 @@
-// DeleteTechnicianUseCase.spec.ts
-import { ITechniciansRepository } from '../../repositories/ITechniciansRepository';
-import { DeleteTechnicianUseCase } from './DeleteTechnicianUseCase';
+// DeleteProfessorUseCase.spec.ts
+import { IProfessorsRepository } from '../../repositories/IProfessorsRepository';
+import { DeleteProfessorUseCase } from './DeleteProfessorUseCase';
 
 // Mock for the repository
-const mockTechniciansRepository: jest.Mocked<ITechniciansRepository> = {
+const mockProfessorsRepository: jest.Mocked<IProfessorsRepository> = {
   findByEmail: jest.fn(),
   save: jest.fn(),
   update: jest.fn(),
@@ -11,24 +11,24 @@ const mockTechniciansRepository: jest.Mocked<ITechniciansRepository> = {
   getAll: jest.fn()
 };
 
-describe('DeleteTechnicianUseCase', () => {
-  let deleteTechnicianUseCase: DeleteTechnicianUseCase;
+describe('DeleteProfessorUseCase', () => {
+  let deleteProfessorUseCase: DeleteProfessorUseCase;
 
   beforeEach(() => {
     // Reset mock calls before each test
     jest.clearAllMocks();
 
-    deleteTechnicianUseCase = new DeleteTechnicianUseCase(
-      mockTechniciansRepository,
+    deleteProfessorUseCase = new DeleteProfessorUseCase(
+      mockProfessorsRepository,
     );
   });
 
-  it('should delete a technician', async () => {
+  it('should delete a professor', async () => {
     // Arrange
-    const technicianEmailToDelete = 'john.doe@example.com';
+    const professorEmailToDelete = 'john.doe@example.com';
 
-    // Mock the repository to return an existing technician
-    mockTechniciansRepository.findByEmail.mockResolvedValueOnce({
+    // Mock the repository to return an existing professor
+    mockProfessorsRepository.findByEmail.mockResolvedValueOnce({
       id: '1a2b3c',
       name: 'John Doe',
       phoneNumber: '12345678',
@@ -38,23 +38,23 @@ describe('DeleteTechnicianUseCase', () => {
     });
 
     // Act
-    await deleteTechnicianUseCase.execute(technicianEmailToDelete);
+    await deleteProfessorUseCase.execute(professorEmailToDelete);
 
     // Assert
-    expect(mockTechniciansRepository.findByEmail).toHaveBeenCalledWith(technicianEmailToDelete);
-    expect(mockTechniciansRepository.delete).toHaveBeenCalledWith(technicianEmailToDelete);
+    expect(mockProfessorsRepository.findByEmail).toHaveBeenCalledWith(professorEmailToDelete);
+    expect(mockProfessorsRepository.delete).toHaveBeenCalledWith(professorEmailToDelete);
   });
 
-  it('should throw an error if the technician does not exist', async () => {
+  it('should throw an error if the professor does not exist', async () => {
     // Arrange
-    const nonExistingTechnicianEmail = 'nonexisting@example.com';
+    const nonExistingProfessorEmail = 'nonexisting@example.com';
 
-    // Mock the repository to return null (indicating that the technician doesn't exist)
-    mockTechniciansRepository.findByEmail.mockResolvedValueOnce(null);
+    // Mock the repository to return null (indicating that the professor doesn't exist)
+    mockProfessorsRepository.findByEmail.mockResolvedValueOnce(null);
 
     // Act and Assert
     await expect(
-      deleteTechnicianUseCase.execute(nonExistingTechnicianEmail)
-    ).rejects.toThrow('Technician not found');
+      deleteProfessorUseCase.execute(nonExistingProfessorEmail)
+    ).rejects.toThrow('Professor not found');
   });
 });

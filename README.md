@@ -37,20 +37,20 @@ Os requisitos serão detalhados a seguir.
 ### Boas práticas:
 - Package by feature:
   - Padrão onde estrutura-se as pastas da app por funcionalidade
-  - Ex.: Tudo relacionado à funcionalidade de criação do professor vai no mesmo diretório (CreateTechnician)
+  - Ex.: Tudo relacionado à funcionalidade de criação do professor vai no mesmo diretório (CreateProfessor)
 
 - Single Responsibility Principle: 
-  - Ex.: classe CreateTechnicianUseCase
+  - Ex.: classe CreateProfessorUseCase
   - Tem a <b>única</b> responsabilidade de crar um professor
   - Não se preocupa/responsabiliza em saber onde vai ser salvo, por exemplo, <b>apenas salva</b>.
   - Um único arquvio que detém toda a regra de negócio para salvar/criar um professor, ou seja, sempre que algum componente quiser salvar um professor, basta usar essa classe.
 
 - Liskov Substitution Principle: 
   - Ex.: <a id="repo">Repository</a>
-  - Quando recebemos techniciansRepository no constructor da classe CreateTechnicianUseCase e falamos que o tipo dele é ITechniciansRepository, ou seja, uma <b>interface</b> que diz os métodos que haverão no repository, não importa o repository (banco de dados), se tiver os métodos declarados vai funcionar.
+  - Quando recebemos professorsRepository no constructor da classe CreateProfessorUseCase e falamos que o tipo dele é IProfessorsRepository, ou seja, uma <b>interface</b> que diz os métodos que haverão no repository, não importa o repository (banco de dados), se tiver os métodos declarados vai funcionar.
 
 - Dependency Inversion Principle
-  - Não dependo diretamentente da implementação, mas apenas da abstração, do repository (interface) - ITechniciansRepository. Uso do <i>DTO</i> (CreateTechnicianDTO) como interface/abstração
+  - Não dependo diretamentente da implementação, mas apenas da abstração, do repository (interface) - IProfessorsRepository. Uso do <i>DTO</i> (CreateProfessorDTO) como interface/abstração
 
 ## ⚡ <a id="feat">Features</a>
 - Validações dos campos;
@@ -61,7 +61,7 @@ Os requisitos serão detalhados a seguir.
   - Padrões de desenvolvimento;
   - Commits semânticos; 
   - Variáveis de ambiente.
-- Envio de email quando o tecnico é cadastrado (nodemailer e mailtrap).
+- Envio de email quando o professor é cadastrado (nodemailer e mailtrap).
 - Filtrar professor por email;
 - 100% Responsivo.
 

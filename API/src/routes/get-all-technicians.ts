@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { getAllTechniciansController } from '../useCases/GetAllTechnicians';
+import { getAllProfessorsController } from '../useCases/GetAllProfessors';
 
-const getAllTechnicians = Router()
+const getAllProfessors = Router()
 
-getAllTechnicians.get('/tecnicos', (request, response) => {
-  return getAllTechniciansController.handle(request, response)
+getAllProfessors.get('/professors', (request, response) => {
+  return getAllProfessorsController.handle(request, response)
 })
 
-export { getAllTechnicians };
+export { getAllProfessors };
 

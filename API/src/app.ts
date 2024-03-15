@@ -1,10 +1,10 @@
 import cors from 'cors'
 import express from 'express'
-import { createTechnician } from './routes/create-technician'
-import { deleteTechnician } from './routes/delete-technician'
-import { getAllTechnicians } from './routes/get-all-technicians'
-import { findTechnicianByEmail } from './routes/get-technician-by-email'
-import { updateTechnician } from './routes/update-technician'
+import { createProfessor } from './routes/create-professor'
+import { deleteProfessor } from './routes/delete-professor'
+import { getAllProfessors } from './routes/get-all-professors'
+import { findProfessorByEmail } from './routes/get-professor-by-email'
+import { updateProfessor } from './routes/update-professor'
 
 // Configuração mais detalhada do CORS
 const corsOptions = {
@@ -19,11 +19,11 @@ const app = express()
 app.use(cors(corsOptions));
 
 app.use(express.json())
-app.use(getAllTechnicians)
-app.use(createTechnician)
-app.use(deleteTechnician)
-app.use(updateTechnician)
-app.use(findTechnicianByEmail)
+app.use(getAllProfessors)
+app.use(createProfessor)
+app.use(deleteProfessor)
+app.use(updateProfessor)
+app.use(findProfessorByEmail)
 
 export { app }
 

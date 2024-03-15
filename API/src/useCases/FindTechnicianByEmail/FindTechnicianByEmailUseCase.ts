@@ -1,20 +1,20 @@
-import { Technician } from "../../entities/Technician";
-import { ITechniciansRepository } from "../../repositories/ITechniciansRepository";
+import { Professor } from "../../entities/Professor";
+import { IProfessorsRepository } from "../../repositories/IProfessorsRepository";
 
-export class FindTechnicianByEmailUseCase {
+export class FindProfessorByEmailUseCase {
 
   constructor(
-    private techniciansRepository: ITechniciansRepository,
+    private professorsRepository: IProfessorsRepository,
   ) {}
 
-  async execute(email: string): Promise<Technician> {
+  async execute(email: string): Promise<Professor> {
 
-    const existingTechnician = await this.techniciansRepository.findByEmail(email)
+    const existingProfessor = await this.professorsRepository.findByEmail(email)
 
-    if(!existingTechnician){
-      throw new Error("Technician not found")
+    if(!existingProfessor){
+      throw new Error("Professor not found")
     }
 
-    return existingTechnician
+    return existingProfessor
   }
 }

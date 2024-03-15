@@ -1,29 +1,29 @@
-import { CreateTechnicianRequestDTO } from "../../dtos/CreateTechnicianDTO";
-import { Technician } from "../../entities/Technician";
+import { CreateProfessorRequestDTO } from "../../dtos/CreateProfessorDTO";
+import { Professor } from "../../entities/Professor";
 import { IMailProvider } from "../../providers/IMailProvider";
-import { ITechniciansRepository } from "../../repositories/ITechniciansRepository";
+import { IProfessorsRepository } from "../../repositories/IProfessorsRepository";
 
-export class CreateTechnicianUseCase {
+export class CreateProfessorUseCase {
   constructor(
-    private techniciansRepository: ITechniciansRepository,
+    private professorsRepository: IProfessorsRepository,
     private mailProvider: IMailProvider
   ) {}
-  async execute(data: CreateTechnicianRequestDTO) {
-    const technicianAlreadyExists = await this.techniciansRepository.findByEmail(data.email)
+  async execute(data: CreateProfessorRequestDTO) {
+    const professorAlreadyExists = await this.professorsRepository.findByEmail(data.email)
 
-    if(technicianAlreadyExists) {
+    if(professorAlreadyExists) {
       throw new Error("Este professor já está cadastrado.")
     }
 
-    const technician = new Technician(data)
+    const professor = new Professor(data)
 
-    await this.techniciansRepository.save(technician)
+    await this.professorsRepository.save(professor)
 
     //independent of the protocol to send the email
     await this.mailProvider.sendMail({
       to: {
-        name: technician.name,
-        email: technician.email
+        name: professor.name,
+        email: professor.email
       },
       from: {
         email: 'teste123@teste.com',

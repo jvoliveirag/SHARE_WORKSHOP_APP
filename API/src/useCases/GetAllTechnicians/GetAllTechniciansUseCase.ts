@@ -1,20 +1,20 @@
-import { Technician } from "../../entities/Technician";
-import { ITechniciansRepository } from "../../repositories/ITechniciansRepository";
+import { Professor } from "../../entities/Professor";
+import { IProfessorsRepository } from "../../repositories/IProfessorsRepository";
 
-export class GetAllTechniciansUseCase {
+export class GetAllProfessorsUseCase {
 
   constructor(
-    private techniciansRepository: ITechniciansRepository,
+    private professorsRepository: IProfessorsRepository,
   ) {}
 
-  async execute(): Promise<Technician[]> {
+  async execute(): Promise<Professor[]> {
 
-    const technicians = await this.techniciansRepository.getAll()
+    const professors = await this.professorsRepository.getAll()
 
-    if(!technicians){
-      throw new Error("No technicians found")
+    if(!professors){
+      throw new Error("No professors found")
     }
 
-    return technicians
+    return professors
   }
 }

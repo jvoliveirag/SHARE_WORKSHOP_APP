@@ -1,11 +1,11 @@
-# @name get-technicians
-GET http://localhost:3333/tecnicos
+# @name get-professors
+GET http://localhost:3333/professors
 
 ###
 
-# @name create-technician
+# @name create-professor
 
-POST http://localhost:3333/tecnico/cadastrar
+POST http://localhost:3333/professor/cadastrar
 Content-Type: application/json
 
 {
@@ -17,9 +17,9 @@ Content-Type: application/json
 
 ###
 
-# @name delete-technician
+# @name delete-professor
 
-DELETE http://localhost:3333/tecnico/deletar
+DELETE http://localhost:3333/professor/deletar
 Content-Type: application/json
 
 {
@@ -28,9 +28,9 @@ Content-Type: application/json
 
 ###
 
-# @name update-technician
+# @name update-professor
 
-PUT http://localhost:3333/tecnico/editar/joao321@gmail.com
+PUT http://localhost:3333/professor/editar/joao321@gmail.com
 Content-Type: application/json
 
 {
@@ -41,7 +41,7 @@ Content-Type: application/json
 
 ###
 
-# @name find-technician-dy-email
+# @name find-professor-dy-email
 
-GET http://localhost:3333/tecnico/joaov123@gmail.com
+GET http://localhost:3333/professor/joaov123@gmail.com
 Content-Type: application/json

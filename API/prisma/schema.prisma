@@ -9,8 +9,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//Technician Table
-model Technician {
+//Professor Table
+model Professor {
   id          String   @id @default(uuid())
   createdAt   DateTime @default(now())
   name        String

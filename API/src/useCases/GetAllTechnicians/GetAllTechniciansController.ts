@@ -1,20 +1,20 @@
 import { Request, Response } from 'express';
-import { GetAllTechniciansUseCase } from './GetAllTechniciansUseCase';
+import { GetAllProfessorsUseCase } from './GetAllProfessorsUseCase';
 
-export class GetAllTechniciansController {
-  constructor(private getAllTechniciansUseCase: GetAllTechniciansUseCase) {}
+export class GetAllProfessorsController {
+  constructor(private getAllProfessorsUseCase: GetAllProfessorsUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
 
     try {
-      const technicians = await this.getAllTechniciansUseCase.execute();
+      const professors = await this.getAllProfessorsUseCase.execute();
 
-      return response.status(200).json(technicians)
+      return response.status(200).json(professors)
 
     } catch (err) {
       console.error('Error: ', err);
       return response.status(404).json({
-        error: err.message || 'No technicians found',
+        error: err.message || 'No professors found',
       });
     }
   }

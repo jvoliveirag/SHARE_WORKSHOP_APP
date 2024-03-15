@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { findTechnicianByEmailController } from '../useCases/FindTechnicianByEmail';
+import { findProfessorByEmailController } from '../useCases/FindProfessorByEmail';
 
-const findTechnicianByEmail = Router()
+const findProfessorByEmail = Router()
 
-findTechnicianByEmail.get('/tecnico/:email', (request, response) => {
-  return findTechnicianByEmailController.handle(request, response)
+findProfessorByEmail.get('/professor/:email', (request, response) => {
+  return findProfessorByEmailController.handle(request, response)
 })
 
-export { findTechnicianByEmail };
+export { findProfessorByEmail };
 

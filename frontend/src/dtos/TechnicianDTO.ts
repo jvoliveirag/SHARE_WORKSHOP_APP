@@ -1,4 +1,4 @@
-export interface Technician {
+export interface Professor {
   name: string
   phoneNumber: string
   email: string

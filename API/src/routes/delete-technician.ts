@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { deleteTechnicianController } from '../useCases/DeleteTechnician';
+import { deleteProfessorController } from '../useCases/DeleteProfessor';
 
-const deleteTechnician = Router()
+const deleteProfessor = Router()
 
-deleteTechnician.delete('/tecnico/deletar', (request, response) => {
-  return deleteTechnicianController.handle(request, response)
+deleteProfessor.delete('/professor/deletar', (request, response) => {
+  return deleteProfessorController.handle(request, response)
 })
 
-export { deleteTechnician };
+export { deleteProfessor };
 

@@ -1,16 +1,16 @@
-import { SQLServerTechniciansRepository } from "../../repositories/implementations/SQLServerTechniciansRepository";
-import { UpdateTechnicianController } from "./UpdateTechnicianController";
-import { UpdateTechnicianUseCase } from "./UpdateTechnicianUseCase";
+import { SQLServerProfessorsRepository } from "../../repositories/implementations/SQLServerProfessorsRepository";
+import { UpdateProfessorController } from "./UpdateProfessorController";
+import { UpdateProfessorUseCase } from "./UpdateProfessorUseCase";
 
-const sqlServerTechniciansRepository = new SQLServerTechniciansRepository
+const sqlServerProfessorsRepository = new SQLServerProfessorsRepository
 
-const updateTechnicianUseCase = new UpdateTechnicianUseCase(
-  sqlServerTechniciansRepository,
+const updateProfessorUseCase = new UpdateProfessorUseCase(
+  sqlServerProfessorsRepository,
 )
 
-const updatTechnicianController = new UpdateTechnicianController(
-  updateTechnicianUseCase
+const updatProfessorController = new UpdateProfessorController(
+  updateProfessorUseCase
 )
 
-export { updatTechnicianController, updateTechnicianUseCase };
+export { updatProfessorController, updateProfessorUseCase };
 

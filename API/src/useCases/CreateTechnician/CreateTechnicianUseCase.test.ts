@@ -1,11 +1,11 @@
-// CreateTechnicianUseCase.spec.ts
-import { CreateTechnicianRequestDTO } from '../../dtos/CreateTechnicianDTO';
+// CreateProfessorUseCase.spec.ts
+import { CreateProfessorRequestDTO } from '../../dtos/CreateProfessorDTO';
 import { IMailProvider } from '../../providers/IMailProvider';
-import { ITechniciansRepository } from '../../repositories/ITechniciansRepository';
-import { CreateTechnicianUseCase } from './CreateTechnicianUseCase';
+import { IProfessorsRepository } from '../../repositories/IProfessorsRepository';
+import { CreateProfessorUseCase } from './CreateProfessorUseCase';
 
 // Mocks for the dependencies
-const mockTechniciansRepository: jest.Mocked<ITechniciansRepository> = {
+const mockProfessorsRepository: jest.Mocked<IProfessorsRepository> = {
   findByEmail: jest.fn(),
   save: jest.fn(),
   update: jest.fn(),
@@ -17,50 +17,50 @@ const mockMailProvider: jest.Mocked<IMailProvider> = {
   sendMail: jest.fn(),
 };
 
-describe('CreateTechnicianUseCase', () => {
-  let createTechnicianUseCase: CreateTechnicianUseCase;
+describe('CreateProfessorUseCase', () => {
+  let createProfessorUseCase: CreateProfessorUseCase;
 
   beforeEach(() => {
     // Reset mock calls before each test
     jest.clearAllMocks();
 
-    createTechnicianUseCase = new CreateTechnicianUseCase(
-      mockTechniciansRepository,
+    createProfessorUseCase = new CreateProfessorUseCase(
+      mockProfessorsRepository,
       mockMailProvider
     );
   });
 
-  it('should create a new technician and send a confirmation email', async () => {
+  it('should create a new professor and send a confirmation email', async () => {
     // Arrange
-    const createTechnicianRequest: CreateTechnicianRequestDTO = {
+    const createProfessorRequest: CreateProfessorRequestDTO = {
       name: 'John Doe',
       phoneNumber: '12345678',
       email: 'john.doe@example.com',
       address: 'rua 123 de oliveira 4'
     };
 
-    // Mock the repository to return null (indicating that the technician doesn't exist)
-    mockTechniciansRepository.findByEmail.mockResolvedValueOnce(null);
+    // Mock the repository to return null (indicating that the professor doesn't exist)
+    mockProfessorsRepository.findByEmail.mockResolvedValueOnce(null);
 
     // Act
-    await createTechnicianUseCase.execute(createTechnicianRequest);
+    await createProfessorUseCase.execute(createProfessorRequest);
 
     // Assert
-    expect(mockTechniciansRepository.findByEmail).toHaveBeenCalledWith(
-      createTechnicianRequest.email
+    expect(mockProfessorsRepository.findByEmail).toHaveBeenCalledWith(
+      createProfessorRequest.email
     );
-    expect(mockTechniciansRepository.save).toHaveBeenCalledWith(
+    expect(mockProfessorsRepository.save).toHaveBeenCalledWith(
       expect.objectContaining({
-        name: createTechnicianRequest.name,
-        phoneNumber: createTechnicianRequest.phoneNumber,
-        email: createTechnicianRequest.email,
-        address: createTechnicianRequest.address
+        name: createProfessorRequest.name,
+        phoneNumber: createProfessorRequest.phoneNumber,
+        email: createProfessorRequest.email,
+        address: createProfessorRequest.address
       })
     );
     expect(mockMailProvider.sendMail).toHaveBeenCalledWith({
       to: {
-        name: createTechnicianRequest.name,
-        email: createTechnicianRequest.email,
+        name: createProfessorRequest.name,
+        email: createProfessorRequest.email,
       },
       from: {
         email: 'teste123@teste.com',
@@ -71,9 +71,9 @@ describe('CreateTechnicianUseCase', () => {
     });
   });
 
-  it('should throw an error if the technician already exists', async () => {
+  it('should throw an error if the professor already exists', async () => {
     // Arrange
-    const createTechnicianRequest: CreateTechnicianRequestDTO = {
+    const createProfessorRequest: CreateProfessorRequestDTO = {
       name: 'John Doe',
       phoneNumber: '12345678',
       email: 'john.doe@example.com',
@@ -81,19 +81,19 @@ describe('CreateTechnicianUseCase', () => {
       // other properties...
     };
 
-    // Mock the repository to return a technician (indicating that the technician already exists)
-    mockTechniciansRepository.findByEmail.mockResolvedValueOnce({
-      // technician data...
+    // Mock the repository to return a professor (indicating that the professor already exists)
+    mockProfessorsRepository.findByEmail.mockResolvedValueOnce({
+      // professor data...
       id: '1a2b3c',
       name: 'Joao 123',
       phoneNumber: '1234567',
-      email: 'tecnico123@gmail.com',
+      email: 'professor123@gmail.com',
       address: 'rua 123 de oliveira 4'
     });
 
     // Act and Assert
     await expect(
-      createTechnicianUseCase.execute(createTechnicianRequest)
+      createProfessorUseCase.execute(createProfessorRequest)
     ).rejects.toThrow('Este professor já está cadastrado.');
 
   });

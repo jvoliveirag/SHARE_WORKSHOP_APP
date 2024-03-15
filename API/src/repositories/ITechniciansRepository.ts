@@ -1,9 +1,9 @@
-import { Technician } from "../entities/Technician";
+import { Professor } from "../entities/Professor";
 
-export interface ITechniciansRepository {
-  findByEmail(email: string): Promise<Technician>
-  save(technician: Technician): Promise<Technician>
-  update(email: string, data: Partial<Technician>): Promise<Technician>
+export interface IProfessorsRepository {
+  findByEmail(email: string): Promise<Professor>
+  save(professor: Professor): Promise<Professor>
+  update(email: string, data: Partial<Professor>): Promise<Professor>
   delete(email: string): Promise<void>
-  getAll(): Promise<Technician[]>
+  getAll(): Promise<Professor[]>
 }

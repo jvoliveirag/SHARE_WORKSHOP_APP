@@ -1,16 +1,16 @@
-// TecnicosPage.tsx
+// ProfessorsPage.tsx
 import React, { useEffect, useState } from "react";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
 import { SideBar } from "../components/sideBar";
-import { TechnicianCard } from "../components/technician-card";
+import { ProfessorCard } from "../components/professor-card";
 import { api } from "../lib/axios";
 
-//const techniciansMockList = techniciansListMock
+//const professorsMockList = professorsListMock
 
-const fetchTechniciansFromAPI = async () => {
+const fetchProfessorsFromAPI = async () => {
   try {
-    const response = await api.get('/tecnicos'); // Substitua pela sua URL completa
+    const response = await api.get('/professors'); // Substitua pela sua URL completa
     return response.data;
   } catch (error) {
     console.error('Erro ao buscar professores:', error);
@@ -18,13 +18,13 @@ const fetchTechniciansFromAPI = async () => {
   }
 };
 
-export const TechniciansPage: React.FC = () => {
+export const ProfessorsPage: React.FC = () => {
 
-  const [techniciansList, setTechniciansList] = useState([]);
+  const [professorsList, setProfessorsList] = useState([]);
 
   useEffect(() => {
     // Chama a função de busca quando o componente monta
-    fetchTechniciansFromAPI().then((data) => setTechniciansList(data));
+    fetchProfessorsFromAPI().then((data) => setProfessorsList(data));
   }, []); // O segundo argumento do useEffect vazio faz com que ele execute apenas uma vez, sem depender de variáveis
 
   return (
@@ -37,8 +37,8 @@ export const TechniciansPage: React.FC = () => {
 
         <div className="flex flex-col flex-1 mb-6 md:mb-0 md:space-y-0 space-y-6 md:pl-3">
           <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6g gap-4">
-            {techniciansList.map((technician, index) => (
-              <TechnicianCard key={index} technician={technician}></TechnicianCard>
+            {professorsList.map((professor, index) => (
+              <ProfessorCard key={index} professor={professor}></ProfessorCard>
             ))}
           </div>
         </div>

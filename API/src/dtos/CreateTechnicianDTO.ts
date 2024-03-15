@@ -1,6 +1,6 @@
 //Data Transfer Object (transferir um dado de uma camada pra outra)
 
-export interface CreateTechnicianRequestDTO {
+export interface CreateProfessorRequestDTO {
   name: string
   phoneNumber: string
   email: string

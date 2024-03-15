@@ -31,7 +31,7 @@ export function CreateDialog() {
     setIsSubmitting(true)
 
     try {
-      await api.post("http://localhost:3333/tecnico/cadastrar", {
+      await api.post("http://localhost:3333/professor/cadastrar", {
         name,
         phoneNumber,
         email,

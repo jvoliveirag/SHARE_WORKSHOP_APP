@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { createTechnicianController } from '../useCases/CreateTechnician';
+import { createProfessorController } from '../useCases/CreateProfessor';
 
-const createTechnician = Router()
+const createProfessor = Router()
 
-createTechnician.post('/tecnico/cadastrar', (request, response) => {
-  return createTechnicianController.handle(request, response)
+createProfessor.post('/professor/cadastrar', (request, response) => {
+  return createProfessorController.handle(request, response)
 })
 
-export { createTechnician };
+export { createProfessor };
 

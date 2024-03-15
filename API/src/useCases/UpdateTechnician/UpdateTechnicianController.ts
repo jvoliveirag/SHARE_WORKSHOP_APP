@@ -1,26 +1,26 @@
 import { Request, Response } from 'express';
-import { UpdateTechnicianUseCase } from './UpdateTechnicianUseCase';
+import { UpdateProfessorUseCase } from './UpdateProfessorUseCase';
 
-export class UpdateTechnicianController {
-  constructor(private updateTechnicianUseCase: UpdateTechnicianUseCase) {}
+export class UpdateProfessorController {
+  constructor(private updateProfessorUseCase: UpdateProfessorUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     const { email } = request.params;
     const { name, phoneNumber, address } = request.body;
 
     try {
-      await this.updateTechnicianUseCase.execute(email, {
+      await this.updateProfessorUseCase.execute(email, {
         name,
         phoneNumber,
         email,
         address,
       });
 
-      return response.status(200).json({ message: 'Technician updated successfully.' });
+      return response.status(200).json({ message: 'Professor updated successfully.' });
     } catch (err) {
       console.error('Error: ', err);
       return response.status(404).json({
-        error: err.message || 'Technician not found',
+        error: err.message || 'Professor not found',
       });
     }
   }
