@@ -8,8 +8,8 @@ import { Search } from "lucide-react";
 import React, { useState } from "react";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
-import { SideBar } from "../components/sideBar";
 import { ProfessorCard } from "../components/professor-card";
+import { SideBar } from "../components/sideBar";
 
 export const FindProfessorPage: React.FC = () => {
   
@@ -22,7 +22,7 @@ export const FindProfessorPage: React.FC = () => {
     e.preventDefault()
 
     try {
-      const response = await api.get(`http://localhost:3333/professor/${email}`)
+      const response = await api.get(`/professor/${email}`)
       setProfessor(response.data)
       setError(null)
 

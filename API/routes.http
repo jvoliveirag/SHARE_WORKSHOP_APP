@@ -9,7 +9,7 @@ POST http://localhost:3333/professor/cadastrar
 Content-Type: application/json
 
 {
-  "name": "João Victor Teste 3",
+  "name": "João Victor Teste",
   "phoneNumber": "123456789",
   "email": "joaov123@gmail.com",
   "address": "rua 1234"
@@ -41,7 +41,7 @@ Content-Type: application/json
 
 ###
 
-# @name find-professor-dy-email
+# @name find-professor-by-email
 
 GET http://localhost:3333/professor/joaov123@gmail.com
 Content-Type: application/json
