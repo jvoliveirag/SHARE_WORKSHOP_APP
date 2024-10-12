@@ -14,7 +14,7 @@ export const InitialPage: React.FC = () => {
       <main className="md:flex-1 p-6 md:flex gap-6 md:space-y-0 space-y-6 justify-center items-center">
         
         <div className="block space-y-6 justify-center items-center bg-gray-300 bg-opacity-30 rounded-md p-6 border border-black">
-          <h1 className="flex justify-center text-xl font-bold">Selecione uma opção</h1>
+          <h1 className="flex justify-center text-xl font-bold">Selecione</h1>
           <SideBar></SideBar>
         </div>
 
